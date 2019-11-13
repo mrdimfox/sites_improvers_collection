@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Easy Redmine - Article editor autoresize
 // @namespace    http://dlisin.tk
-// @version      0.3
+// @version      0.3.0
 // @description  Autoresize height of Easy Redmine article editor
 // @author       Lisin D.A.
 // @include      /http:\w*\/\/redmine(\.pin)?\w*\/{1}easy_knowledge_stories\/.+\/edit
