@@ -10,7 +10,7 @@
 
 // How to:
 // - install Tampermonkey in your browser (https://www.tampermonkey.net/faq.php?ext=dhdg#Q100);
-// - add this script into extension ("Create a new script... > Paste there this script > Ctrl + S");
+// - add this script into extension ("Utilites > Install from URL > Paste this script URL (raw) > Install > Install");
 // - enjoy!
 
 
