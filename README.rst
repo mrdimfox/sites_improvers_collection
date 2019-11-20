@@ -15,3 +15,9 @@ How can I support the author
 ----------------------------
 
 Write an issue or a suggestion how to improve everething is here. That is the best support for me.
+
+TODO
+----
+
+* Add cute badges.
+* Add more points in TODO-list.
