@@ -1,11 +1,14 @@
 // ==UserScript==
 // @name         Easy Redmine - Table of content
 // @namespace    http://dlisin.tk
-// @version      0.4.1
+// @version      0.5.0
 // @description  Make a table of content from headers on `easy_knowledge_stories` pages
 // @author       Lisin D.A.
-// @include      /http(s)?:\/\/.*redmine.*\/{1}easy_knowledge_stories\/{1}\d+#?.*
-// @grant        none
+// @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
+// @grant        GM_registerMenuCommand
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @require      https://gitcdn.xyz/repo/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_storage_field.js
 // ==/UserScript==
 
 // How to:
@@ -13,6 +16,10 @@
 // - add this script into extension ("Utilites > Install from URL > Paste this script URL (raw) > Install > Install");
 // - enjoy!
 
+//** Storage fields */
+let TOC_TITLE = new StorageField('TOC_TITLE', 'Оглавление');
+let TOC_WIDTH = new StorageField('TOC_WIDTH', '14%');
+let TOC_BG_COLOR = new StorageField('TOC_BG_COLOR', '#EDEDED');
 
 //** Script constants */
 const HEADERS_SELECTOR = "h1, h2, h3, h4, h5, h6";
@@ -25,7 +32,7 @@ const PAGE_ID_PREFIX = "article";
 //** ToC styles */
 const STYLE_SHEET = `
 ul.table-of-content:before {
-    content: "Оглавление";
+    content: "${TOC_TITLE.get()}";
     font-weight: bold;
 }
 
@@ -33,12 +40,12 @@ ul.table-of-content {
     display: block;
     position: fixed;
 
-    width:15%;
+    width: ${TOC_WIDTH.get()};
     height: 100%;
 
     margin-left: -1px;
 
-    background-color: #f5efe6;
+    background-color: ${TOC_BG_COLOR.get()};
 
     left: 0;
     top: 87px;
@@ -56,6 +63,16 @@ div#content {
     margin-left: 15% !important;
 }
 `
+
+/**
+ * Create script menu to update some TOC params
+ */
+function registerScriptMenu() {
+    console.log("Registering script menu...");
+    GM_registerMenuCommand("Set TOC title", _ => TOC_TITLE.update_from_menu_handler("TOC title"));
+    GM_registerMenuCommand("Set TOC width", _ => TOC_WIDTH.update_from_menu_handler("TOC width"));
+    GM_registerMenuCommand("Set TOC bg color", _ => TOC_BG_COLOR.update_from_menu_handler("TOC background color"));
+}
 
 /**
  * Add stylesheet to document
@@ -316,6 +333,8 @@ function generateTreeFromHeaders(headers, treeId, maxTreeLevel) {
 
 (function () {
     'use strict';
+
+    registerScriptMenu();
 
     console.log("Creating a table of content...");
 
