@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Easy Redmine - Table of content
 // @namespace    http://dlisin.tk
-// @version      0.5.1
+// @version      0.5.2
 // @description  Make a table of content from headers on `easy_knowledge_stories` pages
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
@@ -9,7 +9,7 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_addStyle
-// @require      https://gitcdn.xyz/repo/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_storage_field.js
+// @require      https://raw.githack.com/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_storage_field.js
 // ==/UserScript==
 
 // How to:

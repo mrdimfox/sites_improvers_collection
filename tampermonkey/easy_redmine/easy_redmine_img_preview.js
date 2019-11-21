@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Easy Redmine - Image preview
 // @namespace    http://dlisin.tk
-// @version      0.2.3
+// @version      0.2.4
 // @description  Show full image preview by clicking on img inside a knowledge base article
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
-// @require      https://gitcdn.xyz/repo/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_injections.js
+// @require      https://raw.githack.com/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_injections.js
 // @grant        GM_addStyle
 // ==/UserScript==
 
