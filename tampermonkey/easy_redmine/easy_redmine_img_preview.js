@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Easy Redmine - Image preview
 // @namespace    http://dlisin.tk
-// @version      0.2.2
+// @version      0.2.3
 // @description  Show full image preview by clicking on img inside a knowledge base article
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
