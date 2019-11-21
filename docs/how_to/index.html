@@ -90,6 +90,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Main docs page</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. How to install modifiers</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#scripts">1.1. Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#styles">1.2. Styles</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../easy_redmine/index.html">2. Easy Redmine</a></li>
@@ -162,7 +163,7 @@
 <h1>1. How to install modifiers<a class="headerlink" href="#how-to-install-modifiers" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="scripts">
 <h2>1.1. Scripts<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h2>
-<p>For almost all scripts you can use <em class="extension">Tampermonkey</em> extension for
+<p>For almost all scripts you can could <em class="extension">Tampermonkey</em> extension for
 your browser. Here are some links to extensions:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.tampermonkey.net/?ext=dhdg&amp;browser=firefox">Firefox</a>;</p></li>
@@ -170,6 +171,23 @@ your browser. Here are some links to extensions:</p>
 <li><p><a class="reference external" href="https://www.tampermonkey.net/?ext=dhdg&amp;browser=edge">Edge</a>  (not Chrome-based version);</p></li>
 <li><p><a class="reference external" href="https://www.tampermonkey.net/index.php?ext=dhdg&amp;browser=safari">others</a>.</p></li>
 </ul>
+<p>Right after extension installation you could install any of scripts:</p>
+<ol class="arabic simple">
+<li><p>Open one of the script files in Github <a class="reference external" href="https://github.com/mrdimfox/sites_improvers_collection/blob/master/tampermonkey/easy_redmine/easy_redmine_toc.js">like that</a>.</p></li>
+<li><p>Then press <span class="guilabel">Raw</span> button. Copy an url of the page into a clipboard.</p></li>
+<li><p>Open <em class="extension">Tampermonkey</em> extension <span class="menuselection">Dashboard ‣
+Utilites</span>.</p></li>
+<li><p>Paste the url into <em>Install from URL</em> field and press <span class="guilabel">Install</span>
+button.</p></li>
+<li><p>Press another <span class="guilabel">Install</span> button.</p></li>
+<li><p>Your are DONE!</p></li>
+</ol>
+<p>Script will be enabled automatically on a page with url which matches
+the regexp in <cite>&#64;include</cite> section of the script header.</p>
+</div>
+<div class="section" id="styles">
+<h2>1.2. Styles<a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h2>
+<p>Under construction.</p>
 </div>
 </div>
 
