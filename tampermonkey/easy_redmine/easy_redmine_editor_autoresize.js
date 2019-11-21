@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name         Easy Redmine - Article editor autoresize
 // @namespace    http://dlisin.tk
-// @version      0.3.0
+// @version      0.3.1
 // @description  Autoresize height of Easy Redmine article editor
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/.+\/edit
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/new
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 // How to:
 // - install Tampermonkey in your browser (https://www.tampermonkey.net/faq.php?ext=dhdg#Q100);
-// - add this script into extension ("Utilites > Install from URL > Paste this script URL (raw) > Install > Install");
+// - add this script into extension ("Utilities > Install from URL > Paste this script URL (raw) > Install > Install");
 // - enjoy!
 
 
@@ -22,17 +22,6 @@
 
 (function () {
     'use strict';
-
-    function addStyleToStyleSheet(cssStr) {
-        var style = document.createElement('style');
-        if (style.styleSheet) {
-            style.styleSheet.cssText = cssStr;
-        } else {
-            style.appendChild(document.createTextNode(cssStr));
-        }
-
-        document.getElementsByTagName('head')[0].appendChild(style);
-    }
 
     let EXTRA_SPACE_AFTER_TEXT = 50
     let descriptionLabelSelector = "label.wiki-edit"
@@ -55,7 +44,7 @@
                     border: 1px solid #dfccaf !important;
                     padding: 10px 0px 0px !important;
                }`
-    addStyleToStyleSheet(css)
+    GM_addStyle(css)
 
     let button = document.querySelector(descriptionLabelSelector);
     button.onclick = resizeTextArea

@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         Easy Redmine - Image preview
 // @namespace    http://dlisin.tk
-// @version      0.2.1
+// @version      0.2.2
 // @description  Show full image preview by clicking on img inside a knowledge base article
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 // How to:
 // - install Tampermonkey in your browser (https://www.tampermonkey.net/faq.php?ext=dhdg#Q100);
-// - add this script into extension ("Utilites > Install from URL > Paste this script URL (raw) > Install > Install");
+// - add this script into extension ("Utilities > Install from URL > Paste this script URL (raw) > Install > Install");
 // - enjoy!
 
 
@@ -27,18 +27,6 @@ const STYLE_SHEET = `
     z-index: 9999;
 }
 `
-
-/**
- * Add stylesheet to document
- *
- * @param {string} styles - valid CSS styles
- */
-function addStylesheet(styles) {
-    let style = document.createElement("style");
-    style.innerHTML = styles;
-    document.getElementsByTagName("body")[0].appendChild(style);
-}
-
 
 /**
  * Insert CSS-file into document <head>
@@ -190,6 +178,5 @@ function make_img_previewable(img, full_img_url) {
         lightbox.load(lightBoxOptions);
     });
 
-    // Add extra styles
-    addStylesheet(STYLE_SHEET);
+    GM_addStyle(STYLE_SHEET);
 })();

@@ -1,19 +1,20 @@
 // ==UserScript==
 // @name         Easy Redmine - Table of content
 // @namespace    http://dlisin.tk
-// @version      0.5.0
+// @version      0.5.1
 // @description  Make a table of content from headers on `easy_knowledge_stories` pages
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
 // @grant        GM_registerMenuCommand
 // @grant        GM_getValue
 // @grant        GM_setValue
+// @grant        GM_addStyle
 // @require      https://gitcdn.xyz/repo/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_storage_field.js
 // ==/UserScript==
 
 // How to:
 // - install Tampermonkey in your browser (https://www.tampermonkey.net/faq.php?ext=dhdg#Q100);
-// - add this script into extension ("Utilites > Install from URL > Paste this script URL (raw) > Install > Install");
+// - add this script into extension ("Utilities > Install from URL > Paste this script URL (raw) > Install > Install");
 // - enjoy!
 
 //** Storage fields */
@@ -72,17 +73,6 @@ function registerScriptMenu() {
     GM_registerMenuCommand("Set TOC title", _ => TOC_TITLE.update_from_menu_handler("TOC title"));
     GM_registerMenuCommand("Set TOC width", _ => TOC_WIDTH.update_from_menu_handler("TOC width"));
     GM_registerMenuCommand("Set TOC bg color", _ => TOC_BG_COLOR.update_from_menu_handler("TOC background color"));
-}
-
-/**
- * Add stylesheet to document
- *
- * @param {string} styles - valid CSS styles
- */
-function addStylesheet(styles) {
-    let style = document.createElement("style");
-    style.innerHTML = styles;
-    document.getElementsByTagName("body")[0].appendChild(style);
 }
 
 /**
@@ -423,11 +413,10 @@ function generateTreeFromHeaders(headers, treeId, maxTreeLevel) {
     tableOfContentList = createATableOfContent(tableOfContentList, tree.childNodes);
     tableOfContentList.className = TABLE_OF_CONTENT_CLASS_NAME;
 
-    // Add styles
-    addStylesheet(STYLE_SHEET)
+    GM_addStyle(STYLE_SHEET);
 
     // Add table as a first element of headers container
-    headersContainer.insertAdjacentElement('afterbegin', tableOfContentList)
+    headersContainer.insertAdjacentElement('afterbegin', tableOfContentList);
 
     console.log("Table of content is successfully created!");
 })();
