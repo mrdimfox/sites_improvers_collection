@@ -5,6 +5,7 @@
 // @description  Show full image preview by clicking on img inside a knowledge base article
 // @author       Lisin D.A.
 // @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
+// @require      https://gitcdn.xyz/repo/mrdimfox/sites_improvers_collection/master/tampermonkey/helpers/tm_injections.js
 // @grant        GM_addStyle
 // ==/UserScript==
 
@@ -27,56 +28,6 @@ const STYLE_SHEET = `
     z-index: 9999;
 }
 `
-
-/**
- * Insert CSS-file into document <head>
- *
- * @param {string} url - url to css file
- */
-function injectCssFile(url) {
-    // Get HTML head element
-    let head = document.getElementsByTagName('head')[0];
-    // Create new link Element
-    let link = document.createElement('link');
-    // Set the attributes for link element
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = url;
-    // Append link element to HTML head
-    head.appendChild(link);
-}
-
-
-/**
- * Insert JS-script into document head
- * 
- * Callback is called on script successful load
- *
- * @param {string} url - url to script
- * @callback `callback` is onload event callback
- */
-function injectJsScript(url, callback) {
-    var script = document.createElement("script")
-    script.type = "text/javascript";
-
-    if (script.readyState) {
-        script.onreadystatechange = function () {
-            if (script.readyState == "loaded" ||
-                script.readyState == "complete") {
-                script.onreadystatechange = null;
-                callback();
-            }
-        };
-    } else {
-        script.onload = function () {
-            callback();
-        };
-    }
-
-    script.src = url;
-    document.getElementsByTagName("head")[0].appendChild(script);
-}
-
 
 /**
  * Returns last array element
