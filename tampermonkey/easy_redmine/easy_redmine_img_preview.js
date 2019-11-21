@@ -4,7 +4,7 @@
 // @version      0.2.1
 // @description  Show full image preview by clicking on img inside a knowledge base article
 // @author       Lisin D.A.
-// @include      /http:\w*\/\/redmine(\.pin)?\w*\/{1}easy_knowledge_stories\/{1}\d+#?.*
+// @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/\d+#?.*
 // @grant        none
 // ==/UserScript==
 

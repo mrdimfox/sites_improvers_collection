@@ -4,7 +4,7 @@
 // @version      0.4.1
 // @description  Make a table of content from headers on `easy_knowledge_stories` pages
 // @author       Lisin D.A.
-// @include      /http:\w*\/\/redmine(\.pin)?\w*\/{1}easy_knowledge_stories\/{1}\d+#?.*
+// @include      /http(s)?:\/\/.*redmine.*\/{1}easy_knowledge_stories\/{1}\d+#?.*
 // @grant        none
 // ==/UserScript==
 

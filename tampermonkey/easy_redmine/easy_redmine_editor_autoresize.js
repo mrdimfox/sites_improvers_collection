@@ -4,8 +4,8 @@
 // @version      0.3.0
 // @description  Autoresize height of Easy Redmine article editor
 // @author       Lisin D.A.
-// @include      /http:\w*\/\/redmine(\.pin)?\w*\/{1}easy_knowledge_stories\/.+\/edit
-// @include      /http:\w*\/\/redmine(\.pin)?\w*\/{1}easy_knowledge_stories\/new
+// @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/.+\/edit
+// @include      /http(s)?:\/\/.*redmine.*\/easy_knowledge_stories\/new
 // @grant        none
 // ==/UserScript==
 
